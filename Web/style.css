@@ -157,18 +157,18 @@ ul {
     cursor: pointer;
     font-weight: bold;
     user-select: none;
-    padding: 0 15px; /* Upraven padding pro menší výšku */
+    padding: 0px 0.20em;
     border: none;
     border-radius: 0;
-    font-size: 3.5em; /* Zvìtšení na 3.5em */
-    line-height: 1; /* Dùležité pro vertikální vycentrování */
+    font-size: 3.5em;
+    line-height: 1em;
     color: gold;
     background-color: transparent;
     transition: color 0.3s ease;
-    display: inline-flex; /* Použití inline-flex pro pøesné vycentrování */
-    align-items: center; /* Vertikální vycentrování v rámci ikony */
-    justify-content: center; /* Horizontální vycentrování v rámci ikony */
-    height: 1.2em; /* Nastavení výšky ikony */
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 1em;
 }
 
     .rozbalit-ikona:hover {
@@ -178,10 +178,15 @@ ul {
 
 .rozbaleny-text {
     display: none;
-    margin-bottom: 20px;
-    padding: 10px 0;
+    margin-bottom: 2em;
+    padding: 0;
     border: none;
     border-radius: 0;
+    font-weight: 300;
+    max-width: 800px;
+    margin-left: 0;
+    margin-right: auto;
+    line-height: 1.6;
 }
 
     .rozbaleny-text.zobrazeny {
@@ -206,3 +211,13 @@ ul {
         display: block;
         margin: 10px auto;
     }
+
+h3.kratky-popis { /* Specifický selektor pro h3 s tøídou kratky-popis */
+    text-transform: uppercase;
+    font-size: 2em;
+    font-weight: 300;
+    color: indigo;
+    margin-top: 0;
+    margin-bottom: 0;
+    line-height: 1em;
+}
