@@ -161,14 +161,15 @@ ul {
     border: none;
     border-radius: 0;
     font-size: 3.5em;
-    line-height: 1em;
+    line-height: 0.7em;
     color: gold;
     background-color: transparent;
     transition: color 0.3s ease;
     display: inline-flex;
     align-items: center;
     justify-content: center;
-    height: 1em;
+    height: 0.7em;
+    padding-bottom: 0.1em;
 }
 
     .rozbalit-ikona:hover {
@@ -220,4 +221,27 @@ h3.kratky-popis { /* Specifický selektor pro h3 s tøídou kratky-popis */
     margin-top: 0;
     margin-bottom: 0;
     line-height: 1em;
+}
+
+#algiz {
+    width: 12em;
+    margin-left: 0;
+    mix-blend-mode: darken;
+}
+
+footer {
+    margin-top: 5em;
+    border-left: 1em solid indigo;
+    padding-left: 1em;
+}
+
+footer p {
+    margin: 0; /* Odstranìní všech okrajù */
+    padding: 0; /* Odstranìní všech vnitøních odsazení */
+    font-size: 0.8em; /* Zmenšení velikosti písma (0.8 násobek výchozí velikosti) */
+    line-height: 1.4; /* Volitelné: Zlepšení èitelnosti pomocí øádkování */
+}
+
+a {
+    color: indigo;
 }
