@@ -17,6 +17,10 @@ RewriteRule ^(.*)$ https://runarov.cz/teletnik/ [R=301,L]
 RewriteCond %{HTTPS} off
 RewriteRule (.*) https://%{HTTP_HOST}%{REQUEST_URI} [R=301,L]
 
+# VYLOUČENÍ avirtu.net - DŮLEŽITÉ!
+RewriteCond %{HTTP_HOST} ^(www\.)?avirtu\.net$ [NC]
+RewriteRule ^ - [L] # Zastaví zpracování dalších pravidel
+
 # aliasy - spravne presmerovani pri chybejicim /
 RewriteCond %{HTTP_HOST} ^(www\.)?felissilvestris.cz$
 RewriteRule ^([0-9a-fA-F]{8}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{4}\-[0-9a-fA-F]{12})$ /get-resource.php?uuid=$1 [L]
