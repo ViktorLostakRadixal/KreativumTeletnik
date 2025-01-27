@@ -225,7 +225,7 @@ h3.kratky-popis { /* Specifický selektor pro h3 s tøídou kratky-popis */
 
 #algiz {
     width: 12em;
-    margin-left: 0;
+    margin-left: 3em;
     mix-blend-mode: darken;
 }
 
