@@ -13,6 +13,7 @@
     --secondary-color-dark: #FFD700; /* Zlatá (sytìjší varianta) */
     --link-color-dark: #9370DB;
     --footer-text-color-dark: #666;
+    --max-font-size: 180px; /* Nastavte požadovanou maximální velikost */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -153,13 +154,18 @@ h1 {
     margin-bottom: 10px;
 }
 
-section h2 {
-    font-size: 160px;
-    margin: 0;
-    line-height: 140px;
-    border-top: 32px solid var(--primary-color); /* Použití promìnné */
-    transition: border-color 0.3s ease;
+section {
+    width: 100%;
+    border-top: 32px solid var(--primary-color); 
 }
+
+    section h2 {
+        font-size: 160px;
+        margin: 0;
+        line-height: 140px;
+        transition: border-color 0.3s ease, font-size 0.3s ease, line-height 0.3s ease; /* Pøidány transition pro font-size a line-height */
+        display: inline-block;
+    }
 
 /* Ostatní styly s použitím promìnných */
 .popis-s-ikonou {
@@ -220,6 +226,14 @@ section h2 {
     .rozbaleny-text img {
         max-width: 100%;
         height: auto;
+        display: block;
+        margin: 10px auto;
+    }
+
+    .rozbaleny-text iframe {
+        width: 100%;
+        max-width: 50em;
+        height: 25em;
         display: block;
         margin: 10px auto;
     }

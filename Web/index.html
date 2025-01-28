@@ -75,6 +75,7 @@
                 <p>Tník je místem, kde se můžeš ztratit v myšlenkách nebo objevovat nové světy. Obklopen přírodou, najdeš zde klidné útočiště pro relaxaci, ale také prostor pro aktivní odpočinek a poznávání. Ať už hledáš inspiraci pro svou uměleckou tvorbu, nebo chceš jednoduše uniknout z ruchu města, u nás si přijdeš na své.</p>
                 <img src="./img/algiz.png" id="algiz" />
                 <p>Kreativum Teletník se nachází v obci <a href="https://runarov.cz">Runářov</a>, přibližně 3 km jižně od Konice. Runářovem prochází silnice spojující jej s Jednovem a Konicí. Přesná poloha je 49.5713139N, 16.8810283E.</p>
+                <iframe style="border:none" src="https://frame.mapy.cz/s/cahalacuju" frameborder="0"></iframe>
                 <div class="kontakt">
                     <p>Máte zájem o Kreativum Teletník? Neváhejte nás kontaktovat!</p>
                     <ul>
@@ -103,6 +104,70 @@
                 const rozbalenyText = ikona.parentNode.nextElementSibling;
                 rozbalenyText.classList.toggle('zobrazeny');
                 ikona.textContent = ikona.textContent === '+' ? '-' : '+';
+            });
+        });
+
+        window.addEventListener('load', () => {
+            const nadpisy = document.querySelectorAll('section h2');
+
+            nadpisy.forEach(nadpis => {
+                let puvodniVelikostPisma = parseFloat(window.getComputedStyle(nadpis).fontSize);
+                let puvodniVyskaRadku = parseFloat(window.getComputedStyle(nadpis).lineHeight);
+                let resizeTimeout;
+                const tolerance = 2;
+
+                // Uložíme původní šířku nadpisu
+                const puvodniSirkaNadpisu = nadpis.offsetWidth;
+
+                function upravVelikostPisma() {
+                    requestAnimationFrame(() => {
+                        console.log("--- Úprava velikosti písma pro nadpis: " + nadpis.textContent + " ---");
+
+                        const cilovaSirka = nadpis.parentNode.offsetWidth;
+
+                        console.log("Původní šířka nadpisu: " + puvodniSirkaNadpisu);
+                        console.log("Cílová šířka (rodiče): " + cilovaSirka);
+
+                        if (puvodniSirkaNadpisu === 0 || cilovaSirka === 0) {
+                            console.log("Šířka nadpisu nebo rodiče je nulová. Nelze vypočítat faktor.");
+                            return;
+                        }
+
+                        if (Math.abs(puvodniSirkaNadpisu - cilovaSirka) <= tolerance) {
+                            console.log("Šířky jsou v toleranci. Není potřeba upravovat.");
+                            return;
+                        }
+
+                        const faktor = cilovaSirka / puvodniSirkaNadpisu; // Použijeme uloženou původní šířku
+
+                        console.log("Faktor: " + faktor);
+
+                        var novaVelikostPisma = puvodniVelikostPisma * faktor;
+                        var novaVyskaRadku = puvodniVyskaRadku * faktor;
+
+                        // Zkontrolujeme, zda nová velikost písma nepřekračuje maximální velikost
+                        const maxFontSize = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--max-font-size'));
+                        if (novaVelikostPisma > maxFontSize) {
+                            novaVelikostPisma = maxFontSize;
+                            novaVyskaRadku = puvodniVyskaRadku * (maxFontSize / puvodniVelikostPisma); // dopočítání výšky řádku
+                        }
+
+                        nadpis.style.fontSize = `${novaVelikostPisma}px`;
+                        nadpis.style.lineHeight = `${novaVyskaRadku}px`;
+
+                        console.log("Kontrola šířky po úpravě: " + nadpis.offsetWidth);
+                    });
+                }
+
+                upravVelikostPisma();
+
+                window.addEventListener('resize', () => {
+                    clearTimeout(resizeTimeout);
+                    resizeTimeout = setTimeout(upravVelikostPisma, 250);
+                });
+
+                const observer = new MutationObserver(upravVelikostPisma);
+                observer.observe(nadpis.parentNode, { attributes: true, childList: true, subtree: true });
             });
         });
     </script>
