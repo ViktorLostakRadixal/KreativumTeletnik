@@ -274,7 +274,7 @@ section {
 }
 
     .rozbaleny-text.zobrazeny {
-        transform: scaleY(1); /* Rozbaleno */
+        display: inherit;
     }
 
     .rozbaleny-text img {
@@ -309,7 +309,7 @@ h3.kratky-popis {
 
 #algiz {
     height: 180px;
-    margin-bottom: 2em;
+    margin: 2em;
     mix-blend-mode: darken;
 }
 
