@@ -172,7 +172,49 @@ section {
         color: #ccc;
         position: relative;
         left: -5px;
+        animation-name: color-change; /* Název animace */
+        animation-duration: 8s; /* Celková doba trvání animace (4 nadpisy x 2s) */
+        animation-timing-function: linear;
+        animation-iteration-count: infinite;
     }
+
+        /* Animace pro první nadpis (bez zpoždìní) */
+    section:nth-child(1) h2 {
+        animation-delay: 0s;
+    }
+
+        /* Animace pro druhý nadpis (zpoždìní 2s) */
+    section:nth-child(2) h2 {
+        animation-delay: 2s;
+    }
+
+        /* Animace pro tøetí nadpis (zpoždìní 4s) */
+    section:nth-child(3) h2 {
+        animation-delay: 4s;
+    }
+
+        /* Animace pro ètvrtý nadpis (zpoždìní 6s) */
+    section:nth-child(4) h2 {
+        animation-delay: 6s;
+    }
+
+@keyframes color-change {
+    0% {
+        color: #ccc;
+    }
+
+    12% {
+        color: #ddd;
+    }
+
+    25% {
+        color: #aaa;
+    }
+
+    100% {
+        color: #ccc;
+    }
+}
 
 /* Ostatní styly s použitím promìnných */
 .popis-s-ikonou {
