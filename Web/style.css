@@ -10,12 +10,12 @@
     /* Tmavý režim */
     --bg-color-dark: #121212; /* Tmavì šedá/èerná */
     --text-color-dark: #eee; /* Svìtle šedá/bílá */
-    --invert-color-dark: #000; /* Svìtle šedá/bílá */
+    --invert-text-color-dark: #000; /* Svìtle šedá/bílá */
     --primary-color-dark: #9370DB; /* Fialová (svìtlejší varianta indiga) */
     --secondary-color-dark: #FFD700; /* Zlatá (sytìjší varianta) */
     --link-color-dark: #9370DB;
     --footer-text-color-dark: #666;
-    --max-font-size: 180px; /* Nastavte požadovanou maximální velikost */
+    --max-font-size: 240px; /* Nastavte požadovanou maximální velikost */
 }
 
 @media (prefers-color-scheme: dark) {
@@ -165,7 +165,7 @@ section {
     section h2 {
         font-size: 180px;
         margin: 0;
-        line-height: 160px;
+        line-height: 180px;
         transition: border-color 0.3s ease, font-size 0.3s ease, line-height 0.3s ease; /* Pøidány transition pro font-size a line-height */
         display: inline-block;
         text-shadow: 10px 0px var(--primary-color);
@@ -209,12 +209,7 @@ section {
         opacity: 0.5;
     }
 
-    25% {
-        color: #ccc;
-        opacity: 1.0;
-    }
-
-    100% {
+    25%, 100% {
         color: #ccc;
         opacity: 1.0;
     }
@@ -316,6 +311,7 @@ h3.kratky-popis {
 @media (prefers-color-scheme: dark) {
     #algiz {
         filter: invert(1);
+        mix-blend-mode: lighten;
     }
 }
 
