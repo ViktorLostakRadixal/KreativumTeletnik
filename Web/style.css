@@ -173,7 +173,7 @@ section {
         position: relative;
         left: -5px;
         animation-name: color-change; /* Název animace */
-        animation-duration: 8s; /* Celková doba trvání animace (4 nadpisy x 2s) */
+        animation-duration: 12s; /* Celková doba trvání animace (4 nadpisy x 2s) */
         animation-timing-function: linear;
         animation-iteration-count: infinite;
     }
@@ -201,18 +201,22 @@ section {
 @keyframes color-change {
     0% {
         color: #ccc;
+        opacity: 1.0;
     }
 
     12% {
         color: #ddd;
+        opacity: 0.5;
     }
 
     25% {
-        color: #aaa;
+        color: #ccc;
+        opacity: 1.0;
     }
 
     100% {
         color: #ccc;
+        opacity: 1.0;
     }
 }
 
