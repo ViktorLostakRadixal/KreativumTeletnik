@@ -220,6 +220,20 @@ section {
     align-items: center;
     background-color: indigo;
     padding-left: 0.5em;
+    max-height: 0;
+    overflow: hidden; /* Skryjeme obsah, který by pøesáhl max-height */
+    animation: rozbaleni 1s ease-in-out 2.5s forwards; /* Animace po 0.5s s trváním 1s */
+    position: relative;
+}
+
+@keyframes rozbaleni {
+    from {
+        max-height: 0; /* Poèáteèní výška 0 */
+    }
+
+    to {
+        max-height: 10em; /* Koneèná výška 4em */
+    }
 }
 
 .kratky-popis {
@@ -248,6 +262,8 @@ section {
     height: 0.7em;
     padding-bottom: 0.1em;
     z-index: 100;
+    position: absolute;
+    right: 0;
 }
 
     .rozbalit-ikona:hover {
@@ -300,6 +316,8 @@ h3.kratky-popis {
     margin-bottom: 0;
     line-height: 1em;
     transition: color 0.3s ease;
+    max-height: inherit;
+    text-overflow: ellipsis;
 }
 
 #algiz {
@@ -341,8 +359,8 @@ a {
     }
 
 .fade-in {
-    -webkit-animation: fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
-    animation: fade-in 2s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    -webkit-animation: fade-in 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
+    animation: fade-in 4s cubic-bezier(0.390, 0.575, 0.565, 1.000) both;
 }
 
 /* ----------------------------------------------
