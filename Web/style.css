@@ -314,7 +314,7 @@ h3.kratky-popis {
     color: var(--invert-text-color); /* Použití promìnné */
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 1em;
+    line-height: 1.4em;
     transition: color 0.3s ease;
     max-height: inherit;
     text-overflow: ellipsis;
