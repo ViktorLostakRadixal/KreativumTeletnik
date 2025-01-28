@@ -29,6 +29,7 @@
 </head>
 <body>
     <main>
+        <img src="./img/algiz.png" id="algiz" />
         <section id="o-nas">
             <h2>KREA</h2>
             <span class="popis-s-ikonou">
@@ -73,7 +74,6 @@
             </span>
             <div class="rozbaleny-text">
                 <p>Tník je místem, kde se můžeš ztratit v myšlenkách nebo objevovat nové světy. Obklopen přírodou, najdeš zde klidné útočiště pro relaxaci, ale také prostor pro aktivní odpočinek a poznávání. Ať už hledáš inspiraci pro svou uměleckou tvorbu, nebo chceš jednoduše uniknout z ruchu města, u nás si přijdeš na své.</p>
-                <img src="./img/algiz.png" id="algiz" />
                 <p>Kreativum Teletník se nachází v obci <a href="https://runarov.cz">Runářov</a>, přibližně 3 km jižně od Konice. Runářovem prochází silnice spojující jej s Jednovem a Konicí. Přesná poloha je 49.5713139N, 16.8810283E.</p>
                 <iframe style="border:none" src="https://frame.mapy.cz/s/cahalacuju" frameborder="0"></iframe>
                 <div class="kontakt">
@@ -123,7 +123,7 @@
                     requestAnimationFrame(() => {
                         console.log("--- Úprava velikosti písma pro nadpis: " + nadpis.textContent + " ---");
 
-                        const cilovaSirka = nadpis.parentNode.offsetWidth;
+                        const cilovaSirka = nadpis.parentNode.clientWidth;
 
                         console.log("Původní šířka nadpisu: " + puvodniSirkaNadpisu);
                         console.log("Cílová šířka (rodiče): " + cilovaSirka);
@@ -160,6 +160,11 @@
                 }
 
                 upravVelikostPisma();
+
+                // Přidáme posluchač události pro změnu orientace zařízení (nebo resize)
+                window.addEventListener('orientationchange', () => {
+                    setTimeout(upravVelikostPisma, 0);
+                });
 
                 window.addEventListener('resize', () => {
                     clearTimeout(resizeTimeout);
