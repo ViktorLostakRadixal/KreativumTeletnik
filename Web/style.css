@@ -307,7 +307,7 @@ section {
         margin: 10px auto;
     }
 
-h3.kratky-popis {
+h3 {
     text-transform: uppercase;
     font-size: 2em;
     font-weight: 300;
@@ -317,8 +317,20 @@ h3.kratky-popis {
     line-height: 1.05em;
     padding: 0.15em 0;
     transition: color 0.3s ease;
+}
+
+h3.kratky-popis {
     max-height: inherit;
     text-overflow: ellipsis;
+}
+
+footer h3 {
+    background: var(--footer-text-color);
+    font-size: 1.5em;
+    padding: 0 0.25em;
+    width: fit-content;
+    margin-bottom: 0.5em;
+    width: 50%;
 }
 
 #algiz {
@@ -428,3 +440,18 @@ a {
     cursor: pointer;
 }
 
+.karusel-kontejner {
+    width: 100%;
+    overflow: hidden;
+    display: flex;
+    position: relative;
+}
+
+.karusel-prvek {
+    flex: 0 0 100%; /* Každý prvek zabere 100% šíøky kontejneru */
+    transition: opacity 0.5s ease-in-out; /* Plynulý pøechod opacity */
+}
+
+    .karusel-prvek:not(.active) { /* Všechny prvky kromì aktivního jsou neviditelné */
+        opacity: 0;
+    }
