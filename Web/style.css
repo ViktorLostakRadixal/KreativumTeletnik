@@ -325,12 +325,11 @@ h3.kratky-popis {
 }
 
 footer h3 {
-    background: var(--footer-text-color);
-    font-size: 1.5em;
-    padding: 0 0.25em;
-    width: fit-content;
+    color: var(--footer-text-color);
+    font-size: 1em;
+    padding: 0;
     margin-bottom: 0.5em;
-    width: 50%;
+    font-weight: 500;
 }
 
 #algiz {
@@ -347,10 +346,11 @@ footer h3 {
 
 footer {
     margin-top: 7em;
-    border-left: 1em solid var(--primary-color); /* Použití promìnné */
+    border-left: 1em solid var(--footer-text-color);
     padding-left: 1em;
     transition: border-color 0.3s ease;
     max-width: 800px;
+    font-weight: 400;
 }
 
     footer p {
@@ -456,3 +456,37 @@ a {
     .karusel-prvek:not(.active) { /* Všechny prvky kromì aktivního jsou neviditelné */
         opacity: 0;
     }
+
+.partner-logo {
+    height: 3em;
+    mix-blend-mode: darken;
+    display: block;
+    border: 0;
+    background-size: contain;
+    width: 50%;
+    background-repeat: no-repeat;
+    background-position: 0 0;
+    outline: none;
+}
+
+#schlieger-logo {
+    background-image: url('./img/schlieger-logo.png');
+}
+
+#radixal-logo {
+    background-image: url('./img/radixal-logo_horizontalni_bez_pozadi.png');
+}
+
+@media (prefers-color-scheme: dark) {
+    .partner-logo {
+        mix-blend-mode: lighten;
+    }
+
+    #schlieger-logo {
+        background-image: url('./img/schlieger-logo-white.png');
+    }
+
+    #radixal-logo {
+        background-image: url('./img/radixal-logo_horizontalni_cerne_bez_pozadi.png');
+    }
+}
