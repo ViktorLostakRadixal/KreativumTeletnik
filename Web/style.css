@@ -10,7 +10,7 @@
     /* Tmavý režim */
     --bg-color-dark: #121212; /* Tmavì šedá/èerná */
     --text-color-dark: #eee; /* Svìtle šedá/bílá */
-    --invert-text-color-dark: #000; /* Svìtle šedá/bílá */
+    --invert-text-color-dark: #ccc; /* Svìtle šedá/bílá */
     --primary-color-dark: #9370DB; /* Fialová (svìtlejší varianta indiga) */
     --secondary-color-dark: #FFD700; /* Zlatá (sytìjší varianta) */
     --link-color-dark: #9370DB;
@@ -261,7 +261,7 @@ section {
     justify-content: center;
     height: 0.7em;
     padding-bottom: 0.1em;
-    z-index: 100;
+    z-index: 10;
     position: absolute;
     right: 0;
 }
@@ -314,15 +314,15 @@ h3.kratky-popis {
     color: var(--invert-text-color); /* Použití promìnné */
     margin-top: 0;
     margin-bottom: 0;
-    line-height: 1.4em;
+    line-height: 1.05em;
+    padding: 0.15em 0;
     transition: color 0.3s ease;
     max-height: inherit;
     text-overflow: ellipsis;
 }
 
 #algiz {
-    height: 180px;
-    margin: 2em;
+    height: var(--max-font-size);
     mix-blend-mode: darken;
 }
 
@@ -393,5 +393,38 @@ a {
     100% {
         opacity: 1;
     }
+}
+
+.modal {
+    display: none; /* Modální okno je zpoèátku skryté */
+    position: fixed; /* Pevné umístìní pøes celou obrazovku */
+    z-index: 100; /* Zobrazí se nad ostatním obsahem */
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    overflow: auto; /* Umožní skrolování, pokud je obrázek vìtší než obrazovka */
+    background-color: rgba(0, 0, 0, 0.9); /* Tmavé pozadí */
+}
+
+.modal-content {
+    margin: auto;
+    display: block;
+    height: 100%;
+    overflow-x: auto;
+}
+
+.close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    color: white;
+    font-size: 3.5em;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.rozbaleny-text img {
+    cursor: pointer;
 }
 
