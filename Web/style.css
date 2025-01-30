@@ -218,7 +218,7 @@ section {
 .popis-s-ikonou {
     display: flex;
     align-items: center;
-    background-color: indigo;
+    background-color: var(--primary-color);
     padding-left: 0.5em;
     max-height: 0;
     overflow: hidden; /* Skryjeme obsah, který by pøesáhl max-height */
@@ -362,10 +362,10 @@ footer {
         transition: color 0.3s ease;
     }
 
-    footer a {
-        display: block;
-        text-decoration: none;
-    }
+.block {
+    display: block;
+    text-decoration: none;
+}
 
 a {
     color: var(--link-color); /* Použití promìnné */
