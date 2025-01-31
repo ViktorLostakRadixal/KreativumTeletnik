@@ -164,18 +164,23 @@ section {
 
     section h2 {
         font-size: var(--max-font-size);
+        cursor: pointer;
         margin: 0;
-        line-height: calc(var(--max-font-size) * 0.85);
+        line-height: 0.75em;
         transition: border-color 0.3s ease, font-size 0.3s ease, line-height 0.3s ease; /* Pøidány transition pro font-size a line-height */
         display: inline-block;
-        text-shadow: 10px 0px var(--primary-color);
         color: #ccc;
-        margin-left: -5px;
         animation-name: color-change; /* Název animace */
         animation-duration: 12s; /* Celková doba trvání animace (4 nadpisy x 2s) */
         animation-timing-function: linear;
         animation-iteration-count: infinite;
+        overflow: hidden;
     }
+
+.rozbaleny > h2.rozbalovaci-prvek {
+    color: var(--primary-color) !important;
+    overflow: initial;
+}
 
         /* Animace pro první nadpis (bez zpoždìní) */
     section:nth-child(1) h2 {
@@ -216,7 +221,7 @@ section {
 
 /* Ostatní styly s použitím promìnných */
 .popis-s-ikonou {
-    display: flex;
+    display: none;
     align-items: center;
     background-color: var(--primary-color);
     padding-left: 0.5em;
@@ -234,6 +239,10 @@ section {
     to {
         max-height: 10em; /* Koneèná výška 4em */
     }
+}
+
+.popis-s-ikonou.rozbaleny {
+    background-color: var(--primary-color-dark);
 }
 
 .kratky-popis {
@@ -284,7 +293,7 @@ section {
     line-height: 1.6;
 }
 
-    .rozbaleny-text.zobrazeny {
+    .rozbaleny > .rozbaleny-text {
         display: inherit;
     }
 
@@ -311,12 +320,17 @@ h3 {
     text-transform: uppercase;
     font-size: 2em;
     font-weight: 300;
-    color: var(--invert-text-color); /* Použití promìnné */
+    color: var(--text-color);
     margin-top: 0;
-    margin-bottom: 0;
-    line-height: 1.05em;
-    padding: 0.15em 0;
+    margin-bottom: 1em;
+    line-height: 1em;
+    padding: 0;
     transition: color 0.3s ease;
+    border-bottom: 1px solid;
+}
+
+.rozbaleny > h3 {
+    color: var(--primary-color);
 }
 
 h3.kratky-popis {
@@ -333,14 +347,16 @@ footer h3 {
 }
 
 #algiz {
-    height: var(--max-font-size);
-    mix-blend-mode: darken;
+    display: block;
+    vertical-align: middle;
+    width: auto;
+    height: 25vw;
+    max-height: calc(var(--max-font-size) * 0.8);
 }
 
 @media (prefers-color-scheme: dark) {
     #algiz {
         filter: invert(1);
-        mix-blend-mode: lighten;
     }
 }
 
@@ -459,18 +475,18 @@ a {
 }
 
 .karusel-kontejner {
-    width: 100%;
     overflow: hidden;
     display: flex;
     position: relative;
 }
 
-.karusel-prvek {
-    flex: 0 0 100%; /* Každý prvek zabere 100% šíøky kontejneru */
-    transition: opacity 0.5s ease-in-out; /* Plynulý pøechod opacity */
-}
+    .karusel-kontejner > * {
+        flex: 0 0 100%; /* Každý prvek zabere 100% šíøky kontejneru */
+        transition: opacity 0.5s ease-in-out; /* Plynulý pøechod opacity */
+        padding: 0.25em;
+    }
 
-    .karusel-prvek:not(.active) { /* Všechny prvky kromì aktivního jsou neviditelné */
+    .karusel-kontejner > *:not(.active) { /* Všechny prvky kromì aktivního jsou neviditelné */
         opacity: 0;
     }
 
@@ -506,4 +522,25 @@ a {
     #radixal-logo {
         background-image: url('./img/radixal-logo_horizontalni_cerne_bez_pozadi.png');
     }
+}
+
+.project-card {
+    color: var(--bg-color);
+    font-size: smaller;
+    font-weight: 300;
+    padding-bottom: 10em;
+}
+
+    .project-card.karusel-kontejner > * {
+        background-color: var(--bg-color-dark);
+        padding: 0.5em;
+    }
+
+h4 {
+    text-transform: uppercase;
+    margin: 0;
+    font-size: 2em;
+    padding: 0.2em 0;
+    line-height: 1;
+    font-weight: 300;
 }
